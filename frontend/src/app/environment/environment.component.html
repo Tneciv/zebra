@@ -1,0 +1,91 @@
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="text-center m-t-lg">
+        <div class="ibox-content">
+
+          <div class="row">
+
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label class="control-label"></label>
+                <div class="input-group">
+                  <button type="button" class="btn btn-primary" (click)="openModal(template)">新增</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div *ngIf="envList">
+            <!--发布资源列表 start-->
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th class="text-center">#</th>
+                  <th class="text-center">环境名</th>
+                  <th class="text-center">环境标签</th>
+                  <th class="text-center">App名</th>
+                  <th class="text-center">更新时间</th>
+                  <th class="text-center">操作</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr *ngFor="let item of envList; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td><strong>{{ item.environmentName }}</strong></td>
+                  <td>{{ item.environmentTag }}</td>
+                  <td>{{ item.environmentDesc }}</td>
+                  <td>{{ item.updateTime }}</td>
+                  <td>
+                    <a title="编辑" class="btn btn-xs btn-warning" (click)="doEdit(item) ; openModal(template)">
+                      <i class="fa fa-pencil-square-o"></i>
+                    </a>
+                    <a title="删除" class="btn btn-xs btn-danger" [swal]="{ title: '确认删除 ?', type: 'warning' }"
+                       (confirm)="doDelete(item)">
+                      <i class="fa fa-trash-o"></i>
+                    </a>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--发布资源列表 end-->
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">环境管理</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="input-group m-b">
+      <span class="input-group-addon">环境名</span>
+      <input type="text" [(ngModel)]="envInfo.environmentName" placeholder="输入环境名（必填）" class="form-control">
+    </div>
+    <div class="input-group m-b">
+      <span class="input-group-addon">环境标签（app检查更新用）</span>
+      <input type="text" [(ngModel)]="envInfo.environmentTag" placeholder="输入环境标签（必填）" class="form-control">
+    </div>
+    <div class="input-group m-b">
+      <span class="input-group-addon">App名</span>
+      <input type="text" [(ngModel)]="envInfo.environmentDesc" placeholder="输入App名（必填）" class="form-control">
+    </div>
+
+    <button type="button" class="btn btn-default" (click)="closeModal()">取消</button>
+    <button type="button" class="btn btn-primary" (click)="submit()">确定</button>
+
+  </div>
+</ng-template>

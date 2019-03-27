@@ -1,0 +1,54 @@
+<div class="mdownBody">
+
+  <!--<div style="display: flex;
+          align-items: center;
+          justify-content: center;
+          background: transparent;
+          position: relative;">-->
+  <div class="header" style="position: absolute;top: 20px;width: 100%;text-align: center">
+    <div style="display: inline-block;">
+      <img src="assets/images/download/img/dh.png" alt="" style="margin-right: 15px;width: 27px;height: 27px">
+      <span
+        style="font-size: 18px;color: #fff;font-weight: bold;text-align: center;font-family:'CTBiaoSongSJ'">中国移动党建云</span>
+    </div>
+    <div style="height: 16px"></div>
+    <div style="text-align: center">
+      <span style="font-weight: bold;font-size: 27px;color: #fff;font-family: 'MFShangYa_Noncommercial-Regular';">服务党员凝聚人心</span>
+    </div>
+  </div>
+  <div class="footer" style="text-align: center;display: inline-block;border:none">
+    <div *ngIf="platformType == 'android' " style="position: absolute;bottom: 10px;width: 100%">
+      <a href="{{ releaseInfo.filePath }}" class="mdownBtn" style="" (click)="doAndroidDownload()"><img
+        src="assets/images/download/img/an.png">Android版下载</a>
+      <div class="mdown_s1">支持系统：Android4.0及以上</div>
+    </div>
+    <div *ngIf="platformType == 'ios' ">
+      <div style="position: absolute;bottom: 10px;width: 100%">
+        <a [href]="releaseInfo.filePath  | safeUrl" class="mdownBtn" style="" (click)="doIOSdownload()"><img
+          src="assets/images/download/img/ip.png">iPhone版下载</a>
+        <div class="mdown_s1">支持系统：iOS7.0及以上</div>
+      </div>
+      <!--弹出层help-->
+      <div class="downLayerBg_help" style="display:none"></div>
+      <div class="downLayer_help" style="display:none;top:0px">
+        <div class="downSt">正在安装,请按Home键在桌面查看</div>
+        <div class="downImgBox_help autoImg">
+          <img src="assets/images/download/downT1.png">
+          <br>
+          <img src="assets/images/download/down_img2.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--弹出层-->
+  <div class="downLayerBg" style="display:none"></div>
+  <div class="downLayer" style="display:none">
+    <div class="downImgBox autoImg">
+      <img src="assets/images/download/down_icon3a.png">
+    </div>
+  </div>
+
+</div>
+

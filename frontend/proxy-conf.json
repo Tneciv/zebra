@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://api.vistopia.com.cn/api",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

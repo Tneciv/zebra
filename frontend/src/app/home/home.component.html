@@ -1,0 +1,92 @@
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+
+    <div *ngFor="let modelContent of modelList">
+      <div class="col-md-12">
+        <h1>
+          {{ modelContent.name }} / {{ modelContent.type }}
+        </h1>
+
+        <div *ngIf="modelContent.recommended">
+          <!--今日推荐-->
+          <div class="col-md-4" *ngFor="let item of modelContent.recommended">
+            <div class="ibox">
+              <div class="ibox-content product-box">
+                <img src="{{ item.image }}" class="img-responsive center-block">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="modelContent.categories">
+          <!--耳界-->
+          <div class="col-md-3" *ngFor="let item of modelContent.categories">
+            <div class="ibox">
+              <div class="ibox-content product-box">
+                <img src="{{ item.content_imgs[0] }}" class="img-responsive center-block">
+                <div class="product-desc">
+                  <span class="product-price">{{ item.media_type_en }}</span>
+                  <a href="#" class="product-name"> {{ item.name }}</a>
+                  <div class="m-t text-righ">
+                    <a href="#" class="btn btn-xs btn-outline btn-primary">Detail <i class="fa fa-long-arrow-right"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="modelContent.quote">
+          <!--遇见 / quote-->
+          <div class="col-lg-12">
+
+            <div class="ibox product-detail">
+              <div class="ibox-content">
+
+                <div class="row">
+                  <div class="col-md-5">
+                    <div class="product-images">
+                      <img src="{{ modelContent.quote.background_img }}" class="img-responsive center-block">
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <h2 class="font-bold m-b-xs">
+                      {{ modelContent.quote.quote_content }}
+                    </h2>
+                    <hr>
+                    <div>
+                      <h1 class="product-main-price">{{ modelContent.quote.title }}</h1>
+                    </div>
+                    <hr>
+                    <h4>{{ modelContent.quote.author }}</h4>
+                    <dl class="dl-horizontal m-t-md small">
+                      <dt>{{ modelContent.quote.part.title }}</dt>
+                    </dl>
+                    <audio src="{{ modelContent.quote.part.media_key_full_url }}" controls></audio>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="modelContent.album">
+          <!--杰作 / album-->
+        </div>
+
+        <div *ngIf="modelContent.single">
+          <!--八分 / single-->
+        </div>
+
+        <div *ngIf="modelContent.group">
+          <!--博雅 / group-->
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

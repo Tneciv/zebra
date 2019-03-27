@@ -1,0 +1,100 @@
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="text-center m-t-lg">
+        <div class="ibox-content">
+
+          <div class="row">
+
+            <div class="col-sm-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" placeholder="输入关键字查询" class="form-control">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" (click)="queryByKeywords()">搜索</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-2">
+              <button type="button" class="btn btn-primary" (click)="openModal(template)">新增</button>
+            </div>
+
+          </div>
+
+          <div class="table-responsive" *ngIf="productList">
+            <table class="table table-striped">
+
+              <thead>
+              <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">产品名</th>
+                <th class="text-center">产品描述</th>
+                <th class="text-center">操作</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr *ngFor="let item of productList; let i = index">
+                <td>{{ i+1 }}</td>
+                <td><strong>{{ item.productName }}</strong></td>
+                <td>{{ item.productDesc }}</td>
+                <td [swal]="{ title: '确认删除 ?', type: 'warning' }"
+                    (confirm)="deleteProd(item)"><a class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a></td>
+              </tr>
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">产品管理</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="input-group m-b">
+      <span class="input-group-addon">产品名</span>
+      <input type="text" [(ngModel)]="prodInfo.productName" placeholder="输入产品名" class="form-control">
+    </div>
+    <div class="input-group m-b">
+      <span class="input-group-addon">产品描述</span>
+      <input type="text" [(ngModel)]="prodInfo.productDesc" placeholder="输入产品描述" class="form-control">
+    </div>
+
+    <div class="ibox-content">
+      <ul class="todo-list m-t small-list">
+        <!--<span>API 列表</span>-->
+        <li *ngFor="let api of apiList; let i=index">
+          <a (click)="api.completed = !api.completed" class="check-link">
+            <i class="fa" [ngClass]="{'fa-check-square': api.completed,'fa-square-o': !api.completed}"></i>
+          </a>
+          <span class="m-l-xs">{{ api.apiUrl }}</span>
+          <small *ngIf="api.apiDesc" class="label label-primary">
+            <i class="fa fa-clock-o"></i> {{ api.apiDesc }}
+          </small>
+          <span>是否读写</span>
+          <a (click)="api.writeAccess = !api.writeAccess" class="check-link">
+            <i class="fa" [ngClass]="{'fa-check-square': api.writeAccess,'fa-square-o': !api.writeAccess}"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <button type="button" class="btn btn-default" (click)="closeModal()">取消</button>
+    <button type="button" class="btn btn-primary" (click)="submit()">确定</button>
+
+  </div>
+</ng-template>
