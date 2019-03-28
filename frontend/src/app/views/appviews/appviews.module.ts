@@ -13,10 +13,10 @@ import { HomeComponent } from '../../home/home.component';
 import { FormsModule } from '@angular/forms';
 import { EnvironmentComponent } from '../../environment/environment.component';
 import { WriteAccessPipe } from '../../home/write-access.pipe';
-import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { AlertService } from '../../common/alert.service';
 import { NgxUploaderModule } from 'ngx-uploader';
 import { DynamicKeyPipe } from '../../home/dynamic-key.pipe';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [

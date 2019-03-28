@@ -27,4 +27,8 @@ export class HomeComponent implements OnInit {
       })
   }
 
+  doCategoriesClick(item: any) {
+    this.alertService.showSucc('content', JSON.stringify(item));
+  }
+
 }

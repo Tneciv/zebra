@@ -10,7 +10,7 @@ export class AlertService {
   }
 
   showAlert(title: string, message: string, type: SweetAlertType, timer: number = AlertService.DEFAULT_TIMER): Promise<SweetAlertResult> {
-    return Swal({
+    return Swal.fire({
       title: title,
       text: message,
       timer: timer,
