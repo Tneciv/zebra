@@ -19,10 +19,11 @@ import { OauthComponent } from './oauth/oauth.component';
 import { DownloadComponent } from './download/download.component';
 import { RecommendComponent } from './home/recommend/recommend.component';
 import { CategoriesComponent } from './home/categories/categories.component';
+import { HomeConstants } from './home/home-constants';
 
 export const ROUTES: Routes = [
   // Main redirect
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: HomeConstants.BASE_ROUTE, pathMatch: 'full'},
 
   // App views
   {
@@ -50,9 +51,15 @@ export const ROUTES: Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'home', component: HomeComponent},
-      {path: 'home/recommend/:id', component: RecommendComponent},
-      {path: 'home/categories/:id', component: CategoriesComponent},
+      {path: HomeConstants.BASE_ROUTE, component: HomeComponent},
+      {
+        path: `${HomeConstants.BASE_ROUTE}/${HomeConstants.RECOMMEND_ROUTE.route}/:id`,
+        component: RecommendComponent
+      },
+      {
+        path: `${HomeConstants.BASE_ROUTE}/${HomeConstants.CATEGORIES_ROUTE.route}/:id`,
+        component: CategoriesComponent
+      },
     ]
   },
   {
@@ -81,5 +88,5 @@ export const ROUTES: Routes = [
   },
 
   // Handle all other routes
-  {path: '**', redirectTo: 'home'}
+  {path: '**', redirectTo: HomeConstants.BASE_ROUTE}
 ];
