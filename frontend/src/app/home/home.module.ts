@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RecommendComponent } from './recommend/recommend.component';
 import { IboxtoolsModule } from '../components/common/iboxtools/iboxtools.module';
 import { HomeComponent } from './home.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
+    CategoriesComponent,
     RecommendComponent
   ],
   imports: [
@@ -16,6 +18,7 @@ import { HomeComponent } from './home.component';
   ],
   exports: [
     HomeComponent,
+    CategoriesComponent,
     RecommendComponent
   ],
 })

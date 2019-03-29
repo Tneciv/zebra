@@ -8,7 +8,7 @@ import { AlertService } from '../../common/alert.service';
 })
 export class RecommendComponent implements OnInit {
 
-  constructor(public alertService: AlertService) {
+  constructor(private alertService: AlertService) {
   }
 
   ngOnInit() {

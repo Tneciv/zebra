@@ -18,6 +18,7 @@ import { TodayComponent } from './today/today.component';
 import { OauthComponent } from './oauth/oauth.component';
 import { DownloadComponent } from './download/download.component';
 import { RecommendComponent } from './home/recommend/recommend.component';
+import { CategoriesComponent } from './home/categories/categories.component';
 
 export const ROUTES: Routes = [
   // Main redirect
@@ -50,7 +51,8 @@ export const ROUTES: Routes = [
     path: '', component: BasicLayoutComponent,
     children: [
       {path: 'home', component: HomeComponent},
-      {path: 'home/recommend', component: RecommendComponent},
+      {path: 'home/recommend/:id', component: RecommendComponent},
+      {path: 'home/categories/:id', component: CategoriesComponent},
     ]
   },
   {
