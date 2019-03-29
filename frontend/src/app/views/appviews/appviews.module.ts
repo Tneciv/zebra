@@ -11,7 +11,7 @@ import { HttpService } from '../../common/http.service';
 import { ModalModule, PaginationModule, TabsModule, TooltipModule } from 'ngx-bootstrap';
 import { HomeComponent } from '../../home/home.component';
 import { FormsModule } from '@angular/forms';
-import { EnvironmentComponent } from '../../environment/environment.component';
+import { TodayComponent } from '../../today/today.component';
 import { WriteAccessPipe } from '../../home/write-access.pipe';
 import { AlertService } from '../../common/alert.service';
 import { NgxUploaderModule } from 'ngx-uploader';
@@ -22,7 +22,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   declarations: [
     StarterViewComponent,
     LoginComponent,
-    EnvironmentComponent,
+    TodayComponent,
     WriteAccessPipe,
     DynamicKeyPipe,
     HomeComponent
@@ -49,7 +49,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   exports: [
     StarterViewComponent,
     LoginComponent,
-    EnvironmentComponent,
+    TodayComponent,
     HomeComponent
   ],
   providers: [

@@ -4,7 +4,7 @@ import { BsModalService } from 'ngx-bootstrap';
 import { AlertService } from '../common/alert.service';
 
 @Component({
-  selector: 'app-release',
+  selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

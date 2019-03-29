@@ -14,7 +14,7 @@ import { BlankLayoutComponent } from './components/common/layouts/blankLayout.co
 import { BasicLayoutComponent } from './components/common/layouts/basicLayout.component';
 import { TopNavigationLayoutComponent } from './components/common/layouts/topNavigationLayout.component';
 import { HomeComponent } from './home/home.component';
-import { EnvironmentComponent } from './environment/environment.component';
+import { TodayComponent } from './today/today.component';
 import { OauthComponent } from './oauth/oauth.component';
 import { DownloadComponent } from './download/download.component';
 
@@ -54,7 +54,7 @@ export const ROUTES: Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'environment', component: EnvironmentComponent}
+      {path: 'today', component: TodayComponent}
     ]
   },
   {
@@ -77,5 +77,5 @@ export const ROUTES: Routes = [
   },
 
   // Handle all other routes
-  {path: '**', redirectTo: 'oauth'}
+  {path: '**', redirectTo: 'home'}
 ];
