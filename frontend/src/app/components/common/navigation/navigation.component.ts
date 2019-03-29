@@ -26,7 +26,7 @@ export class NavigationComponent implements AfterViewInit {
   homeRoute = 'home';
 
   homeList = [
-    {route: 'recommended', name: '今日推荐'},
+    {route: 'recommend', name: '今日推荐'},
     {route: 'categories', name: '耳界'},
     {route: 'quote', name: '遇见'},
     {route: 'album', name: '杰作'},

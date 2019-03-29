@@ -9,29 +9,25 @@ import { PeityModule } from '../../components/charts/peity';
 import { SparklineModule } from '../../components/charts/sparkline';
 import { HttpService } from '../../common/http.service';
 import { ModalModule, PaginationModule, TabsModule, TooltipModule } from 'ngx-bootstrap';
-import { HomeComponent } from '../../home/home.component';
 import { FormsModule } from '@angular/forms';
 import { TodayComponent } from '../../today/today.component';
-import { WriteAccessPipe } from '../../home/write-access.pipe';
 import { AlertService } from '../../common/alert.service';
 import { NgxUploaderModule } from 'ngx-uploader';
-import { DynamicKeyPipe } from '../../home/dynamic-key.pipe';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HomeModule } from '../../home/home.module';
 
 @NgModule({
   declarations: [
     StarterViewComponent,
     LoginComponent,
-    TodayComponent,
-    WriteAccessPipe,
-    DynamicKeyPipe,
-    HomeComponent
+    TodayComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
     PeityModule,
     FormsModule,
+    HomeModule,
     TabsModule.forRoot(),
     ModalModule.forRoot(),
     PaginationModule.forRoot(),
@@ -49,8 +45,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   exports: [
     StarterViewComponent,
     LoginComponent,
-    TodayComponent,
-    HomeComponent
+    TodayComponent
   ],
   providers: [
     HttpService, AlertService

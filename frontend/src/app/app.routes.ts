@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { TodayComponent } from './today/today.component';
 import { OauthComponent } from './oauth/oauth.component';
 import { DownloadComponent } from './download/download.component';
+import { RecommendComponent } from './home/recommend/recommend.component';
 
 export const ROUTES: Routes = [
   // Main redirect
@@ -48,7 +49,8 @@ export const ROUTES: Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'home', component: HomeComponent}
+      {path: 'home', component: HomeComponent},
+      {path: 'home/recommend', component: RecommendComponent},
     ]
   },
   {
