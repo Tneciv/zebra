@@ -5,11 +5,13 @@ import { RecommendComponent } from './recommend/recommend.component';
 import { IboxtoolsModule } from '../components/common/iboxtools/iboxtools.module';
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { PlayerComponent } from '../player/player.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CategoriesComponent,
+    PlayerComponent,
     RecommendComponent
   ],
   imports: [
@@ -19,6 +21,7 @@ import { CategoriesComponent } from './categories/categories.component';
   exports: [
     HomeComponent,
     CategoriesComponent,
+    PlayerComponent,
     RecommendComponent
   ],
 })

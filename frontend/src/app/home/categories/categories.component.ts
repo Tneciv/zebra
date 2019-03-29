@@ -14,7 +14,13 @@ export class CategoriesComponent implements OnInit {
   }
 
   ngOnInit() {
-    let param = this.route.snapshot.params['id'];
+
+    let id = this.route.snapshot.params['id'];
+    this.httpService.get(`/v1/content/catalog/${id}`)
+      .subscribe(res => {
+        console.log(res);
+      });
+
   }
 
 }

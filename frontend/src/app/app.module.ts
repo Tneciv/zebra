@@ -24,7 +24,7 @@ import { SafeUrlPipe } from './download/safe-url.pipe';
     AppComponent,
     OauthComponent,
     DownloadComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +41,8 @@ import { SafeUrlPipe } from './download/safe-url.pipe';
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true}
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })
