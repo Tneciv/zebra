@@ -10,6 +10,9 @@ import { MediaItem } from '../../player/media-item';
 })
 export class CategoriesComponent implements OnInit {
 
+  mainContent = null;
+  isShowPlayer = false;
+
   currentMediaItem: MediaItem = {
     url: 'http://cdn.vistopia.com.cn/1535343150532.mp3',
     author: '梁文道',
@@ -27,8 +30,18 @@ export class CategoriesComponent implements OnInit {
     this.httpService.get(`/v1/content/catalog/${id}`)
       .subscribe(res => {
         console.log(res);
+        this.mainContent = res.data;
+        this.currentMediaItem.author = this.mainContent.author;
+        this.currentMediaItem.image = this.mainContent.background_img;
       });
 
+  }
+
+  doContentItemClick(content: any) {
+    console.log(content);
+    this.currentMediaItem.url = content.media_key_full_url;
+    this.currentMediaItem.title = content.title;
+    this.isShowPlayer = true;
   }
 
 }

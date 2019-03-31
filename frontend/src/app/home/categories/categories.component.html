@@ -1,1 +1,104 @@
-<app-player [mediaItem]=currentMediaItem></app-player>
+<div class="row" *ngIf="mainContent">
+  <div class="col-lg-9">
+    <div class="wrapper wrapper-content animated fadeInUp">
+      <div class="ibox">
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="m-b-md">
+                <h2>{{ mainContent.title }}</h2>
+              </div>
+              <dl class="dl-horizontal">
+                <dt>Status:</dt>
+                <dd><span class="label label-primary">{{ mainContent.media_type_en }}</span></dd>
+              </dl>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <dl class="dl-horizontal">
+                <dt>Created by:</dt>
+                <dd>{{ mainContent.author }}</dd>
+              </dl>
+            </div>
+            <div class="col-lg-7" id="cluster_info">
+              <dl class="dl-horizontal">
+                <dt>Participants:</dt>
+                <dd class="project-people">
+                  <a href=""><img alt="image" class="img-circle" src="{{ mainContent.small_background_img }}"></a>
+                </dd>
+              </dl>
+            </div>
+          </div>
+          <div class="row m-t-sm">
+            <div class="col-lg-12">
+              <div class="panel blank-panel">
+                <div class="panel-heading">
+                  <div class="panel-options">
+
+                    <tabset *ngIf="mainContent.catalog" class="nav nav-tabs">
+                      <tab *ngFor="let item of mainContent?.catalog" heading="{{ item.catalog_title }}"
+                           id="{{ item.catalog_id }}">
+                        <div class="panel-body">
+                          <div class="tab-content">
+                            <div class="tab-pane active" id="tab-2">
+
+                              <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                  <th>Status</th>
+                                  <th>Title</th>
+                                  <th>Duration</th>
+                                  <!--                                  <th>Audio path</th>-->
+                                  <th>Comments</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr *ngFor="let content of item.part">
+                                  <td (click)="doContentItemClick(content)">
+                                    <span class="label label-primary"><i class="fa fa-play"></i></span>
+                                  </td>
+                                  <td>
+                                    {{ content.title }}
+                                  </td>
+                                  <td>
+                                    {{ content.duration_str }}
+                                  </td>
+                                  <!--                                  <td>-->
+                                  <!--                                    {{ content.media_key_full_url }}-->
+                                  <!--                                  </td>-->
+                                  <td>
+                                    <p class="small">
+                                      {{ content.share_desc }}
+                                    </p>
+                                  </td>
+
+                                </tr>
+
+                                </tbody>
+                              </table>
+
+                            </div>
+                          </div>
+                        </div>
+                      </tab>
+                    </tabset>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-3">
+    <div class="wrapper wrapper-content project-manager">
+      <img *ngIf='!isShowPlayer' src="{{ mainContent.background_img }}" class="img-responsive center-block">
+      <app-player *ngIf='isShowPlayer' [mediaItem]=currentMediaItem></app-player>
+    </div>
+  </div>
+
+</div>

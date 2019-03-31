@@ -16,23 +16,23 @@ export class PlayerComponent implements OnInit {
   currentAudio = new Audio();
 
   constructor() {
+    console.log('constructor');
   }
 
   ngOnInit() {
-
-    this.mediaItem.image = `url(${this.mediaItem.image})`;
-
+    console.log('init');
     $('#player').hover(function () {
       $('.info').toggleClass('up');
     });
-
-    this.currentAudio.src = this.mediaItem.url;
-    this.currentAudio.addEventListener('timeupdate', (currentTime) => {
-    });
-
+    console.log(this.mediaItem);
   }
 
   doPlay() {
+    console.log(this.mediaItem);
+    this.mediaItem.image = `url(${this.mediaItem.image})`;
+    this.currentAudio.src = this.mediaItem.url;
+    this.currentAudio.addEventListener('timeupdate', (currentTime) => {
+    });
     this.playStatusChanged();
     this.currentAudio.play();
   }

@@ -11,7 +11,7 @@ import { DashboardsModule } from './views/dashboards/dashboards.module';
 import { AppviewsModule } from './views/appviews/appviews.module';
 // App modules/components
 import { LayoutsModule } from './components/common/layouts/layouts.module';
-import { PaginationModule, TooltipModule } from 'ngx-bootstrap';
+import { PaginationModule, TabsModule, TooltipModule } from 'ngx-bootstrap';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JWTInterceptor } from './common/jwt.interceptor';
 import { NgxUploaderModule } from 'ngx-uploader';
@@ -36,6 +36,7 @@ import { SafeUrlPipe } from './download/safe-url.pipe';
     NgxUploaderModule,
     PaginationModule.forRoot(),
     TooltipModule.forRoot(),
+    TabsModule.forRoot(),
     RouterModule.forRoot(ROUTES)
   ],
   providers: [

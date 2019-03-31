@@ -6,6 +6,7 @@ import { IboxtoolsModule } from '../components/common/iboxtools/iboxtools.module
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PlayerModule } from '../player/player.module';
+import { TabsModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { PlayerModule } from '../player/player.module';
   imports: [
     BrowserModule,
     IboxtoolsModule,
+    TabsModule.forRoot(),
     PlayerModule
   ],
   exports: [
