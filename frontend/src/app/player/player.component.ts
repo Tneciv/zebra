@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { MediaItem } from './media-item';
 
 declare var $: any;
@@ -8,7 +8,7 @@ declare var $: any;
   templateUrl: './player.component.html',
   styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements OnInit, OnChanges {
 
   @Input() mediaItem: MediaItem;
 
@@ -16,38 +16,35 @@ export class PlayerComponent implements OnInit {
   currentAudio = new Audio();
 
   constructor() {
-    console.log('constructor');
   }
 
   ngOnInit() {
-    console.log('init');
-    $('#player').hover(function () {
-      $('.info').toggleClass('up');
-    });
-    console.log(this.mediaItem);
-  }
-
-  doPlay() {
-    console.log(this.mediaItem);
     this.mediaItem.image = `url(${this.mediaItem.image})`;
     this.currentAudio.src = this.mediaItem.url;
     this.currentAudio.addEventListener('timeupdate', (currentTime) => {
     });
-    this.playStatusChanged();
+    this.doPlay();
+  }
+
+  doPlay() {
+    this.isPlaying = true;
     this.currentAudio.play();
   }
 
   doPause() {
-    this.playStatusChanged();
+    this.isPlaying = false;
     this.currentAudio.pause();
   }
 
   doHeartClick() {
+    console.log('Not finished yet');
   }
 
-  playStatusChanged() {
-    $('.info').toggleClass('up');
-    this.isPlaying = !this.isPlaying;
+  ngOnChanges(changes: any): void {
+    this.mediaItem = changes.mediaItem.currentValue;
+    if (!changes.mediaItem.firstChange) {
+      this.ngOnInit();
+    }
   }
 
 }

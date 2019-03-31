@@ -9,7 +9,7 @@
                 <h2>{{ mainContent.title }}</h2>
               </div>
               <dl class="dl-horizontal">
-                <dt>Status:</dt>
+                <dt>Type :</dt>
                 <dd><span class="label label-primary">{{ mainContent.media_type_en }}</span></dd>
               </dl>
             </div>
@@ -17,16 +17,8 @@
           <div class="row">
             <div class="col-lg-5">
               <dl class="dl-horizontal">
-                <dt>Created by:</dt>
+                <dt>Author :</dt>
                 <dd>{{ mainContent.author }}</dd>
-              </dl>
-            </div>
-            <div class="col-lg-7" id="cluster_info">
-              <dl class="dl-horizontal">
-                <dt>Participants:</dt>
-                <dd class="project-people">
-                  <a href=""><img alt="image" class="img-circle" src="{{ mainContent.small_background_img }}"></a>
-                </dd>
               </dl>
             </div>
           </div>
@@ -49,7 +41,6 @@
                                   <th>Status</th>
                                   <th>Title</th>
                                   <th>Duration</th>
-                                  <!--                                  <th>Audio path</th>-->
                                   <th>Comments</th>
                                 </tr>
                                 </thead>
@@ -64,17 +55,12 @@
                                   <td>
                                     {{ content.duration_str }}
                                   </td>
-                                  <!--                                  <td>-->
-                                  <!--                                    {{ content.media_key_full_url }}-->
-                                  <!--                                  </td>-->
                                   <td>
                                     <p class="small">
                                       {{ content.share_desc }}
                                     </p>
                                   </td>
-
                                 </tr>
-
                                 </tbody>
                               </table>
 
