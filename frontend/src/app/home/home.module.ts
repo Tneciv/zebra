@@ -5,25 +5,22 @@ import { RecommendComponent } from './recommend/recommend.component';
 import { IboxtoolsModule } from '../components/common/iboxtools/iboxtools.module';
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { PlayerComponent } from '../player/player.component';
-import { MinuteSecondsPipe } from '../player/minute-seconds.pipe';
+import { PlayerModule } from '../player/player.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CategoriesComponent,
-    PlayerComponent,
-    MinuteSecondsPipe,
     RecommendComponent
   ],
   imports: [
     BrowserModule,
-    IboxtoolsModule
+    IboxtoolsModule,
+    PlayerModule
   ],
   exports: [
     HomeComponent,
     CategoriesComponent,
-    PlayerComponent,
     RecommendComponent
   ],
 })
