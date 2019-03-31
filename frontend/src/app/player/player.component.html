@@ -1,23 +1,23 @@
 <div id="player">
-  <div class="album" style="background-image: url(http://cdn.vistopia.com.cn/1535342540956.png)">
-    <div class="heart"><i class="fa fa-heart"></i></div>
+  <div class="album" [ngStyle]="{ 'background-image': mediaItem.image }">
+    <div class="heart" (click)="doHeartClick()"><i class="fa fa-heart"></i></div>
   </div>
   <div class="info">
     <div class="progress-bar">
-      <div class="time--current">1:25</div>
-      <div class="time--total">-3:15</div>
-      <div class="fill"></div>
+      <div class="time--current">{{ currentAudio.currentTime | number:'1.0-0' | minuteSeconds  }}</div>
+      <div class="time--total">{{ currentAudio.duration | number:'1.0-0' | minuteSeconds }}</div>
+      <div class="fill" [ngStyle]="{ 'width': currentAudio.currentTime / currentAudio.duration * 100 +'%'}"></div>
     </div>
     <div class="currently-playing">
-      <h2 class="song-name">Symphony</h2>
-      <h3 class="artist-name">Clean Bandit ft. Zara Larsson</h3>
+      <h2 class="song-name"> mediaItem.title }} </h2>
+      <h3 class="artist-name">{{ mediaItem.author }} </h3>
     </div>
     <div class="controls">
       <div class="option"><i class="fa fa-bars"></i></div>
       <div class="volume"><i class="fa fa-volume-up"></i></div>
       <div class="previous"><i class="fa fa-backward"></i></div>
-      <div class="play"><i class="fa fa-play"></i></div>
-      <div class="pause"><i class="fa fa-pause"></i></div>
+      <div *ngIf=!isPlaying class="play" (click)="doPlay()"><i class="fa fa-play"></i></div>
+      <div *ngIf=isPlaying class="pause" (click)="doPause()"><i class="fa fa-pause"></i></div>
       <div class="next"><i class="fa fa-forward"></i></div>
       <div class="shuffle"><i class="fa fa-random"></i></div>
       <div class="add"><i class="fa fa-plus"></i></div>

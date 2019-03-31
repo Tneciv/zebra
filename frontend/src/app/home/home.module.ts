@@ -6,12 +6,14 @@ import { IboxtoolsModule } from '../components/common/iboxtools/iboxtools.module
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PlayerComponent } from '../player/player.component';
+import { MinuteSecondsPipe } from '../player/minute-seconds.pipe';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CategoriesComponent,
     PlayerComponent,
+    MinuteSecondsPipe,
     RecommendComponent
   ],
   imports: [

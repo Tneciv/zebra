@@ -12,25 +12,42 @@ export class PlayerComponent implements OnInit {
 
   @Input() mediaItem: MediaItem;
 
+  isPlaying = false;
+  currentAudio = new Audio();
+
   constructor() {
   }
 
   ngOnInit() {
+
+    this.mediaItem.image = `url(${this.mediaItem.image})`;
+
     $('#player').hover(function () {
       $('.info').toggleClass('up');
     });
 
-    let audio = new Audio('http://cdn.vistopia.com.cn/1535343150532.mp3');
-
-    $('.pause').hide(); // hide pause button until clicked
-
-    // play button
-    $('.play').click(function () {
-      audio.play();
-      $('.play').hide();
-      $('.pause').show();
+    this.currentAudio.src = this.mediaItem.url;
+    this.currentAudio.addEventListener('timeupdate', (currentTime) => {
     });
 
+  }
+
+  doPlay() {
+    this.playStatusChanged();
+    this.currentAudio.play();
+  }
+
+  doPause() {
+    this.playStatusChanged();
+    this.currentAudio.pause();
+  }
+
+  doHeartClick() {
+  }
+
+  playStatusChanged() {
+    $('.info').toggleClass('up');
+    this.isPlaying = !this.isPlaying;
   }
 
 }

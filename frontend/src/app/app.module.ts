@@ -42,8 +42,7 @@ import { SafeUrlPipe } from './download/safe-url.pipe';
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true}
   ],
-  exports: [
-  ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
