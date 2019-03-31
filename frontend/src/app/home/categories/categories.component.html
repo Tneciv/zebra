@@ -81,8 +81,9 @@
   </div>
 
   <div class="col-lg-3">
-    <div class="wrapper wrapper-content project-manager">
-      <img *ngIf='!isShowPlayer' src="{{ mainContent.background_img }}" class="img-responsive center-block">
+    <div class="wrapper wrapper-content project-manager fixed-div">
+      <img style="width: 300px;" *ngIf='!isShowPlayer' src="{{ mainContent.background_img }}"
+           class="img-responsive center-block">
       <app-player *ngIf='isShowPlayer' [mediaItem]=currentMediaItem></app-player>
     </div>
   </div>
